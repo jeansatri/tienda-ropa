@@ -140,6 +140,7 @@ class AdminWindow(BoxLayout):
 
 	def venta(self):
 		self.parent.parent.current='scrn_ventas'
+		print"esto es una prueba"
 
 
 class AdminApp(App):
