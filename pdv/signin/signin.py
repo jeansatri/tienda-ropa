@@ -30,14 +30,16 @@ class SigninWindow(BoxLayout):
 					self.ids.username.text=''
 					self.ids.password.text=''
 					self.ids.signin_notificacion.text=''
-						self.parent.parent.current='scrn_ventas'
+					if usuario['tipo']=='trabajador':
 						self.parent.parent.current='scrn_ventas'
 					else:
 						self.parent.parent.current='scrn_admin'
+					self.poner_usuario(usuario)
 				else:
 					self.ids.signin_notificacion.text='Usuario o contraseña incorrecta'
 			else:
 				self.ids.signin_notificacion.text='Usuario o contraseña incorrecta'
+
 
 
 class SigninApp(App):

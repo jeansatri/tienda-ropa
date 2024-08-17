@@ -77,6 +77,105 @@
     	size_hint_x: .25
     	color: (0,0,0,1)
 
+<ProductoPopup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: ''
+    BoxLayout:
+	    orientation: 'vertical'
+	    padding: .05
+	    BoxLayout:
+	    	size_hint_y: .1
+		    Label:
+		    	id: producto_info_1
+	    Label:
+	    	id: no_valid_notif
+	    	size_hint_y: .1
+	    TextInput: 
+			size_hint_y: .2
+			id: producto_codigo
+			multiline: False
+			hint_text: 'Código'
+			write_tab: False
+		TextInput: 
+			id: producto_nombre
+			size_hint_y: .2
+			multiline: False
+			hint_text: 'Nombre'
+			write_tab: False
+		BoxLayout:
+			size_hint_y: .2
+			TextInput: 
+				id: producto_cantidad
+				multiline: False
+				hint_text: 'Cantidad'
+				write_tab: False
+			TextInput: 
+				id: producto_precio
+				multiline: False
+				hint_text: 'Precio'
+				write_tab: False
+		BoxLayout:
+			size_hint_y: .2
+		    Button:
+		    	text: 'Aceptar'
+		    	on_release: root.verificar(producto_codigo.text, producto_nombre.text, producto_cantidad.text, producto_precio.text)
+		    Button:
+		        text: 'Salir sin hacer cambios'
+		        on_press: root.dismiss()
+
+<UsuarioPopup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    title: ''
+    BoxLayout:
+	    orientation: 'vertical'
+	    padding: .05
+	    Label:
+	    	size_hint_y: .1
+	    	id: usuario_info_1
+	    Label:
+	    	id: no_valid_notif
+	    	size_hint_y: .1
+	    TextInput: 
+			size_hint_y: .2
+			id: usuario_username
+			multiline: False
+			hint_text: 'Username'
+			write_tab: False
+		TextInput: 
+			id: usuario_nombre
+			size_hint_y: .2
+			multiline: False
+			hint_text: 'Nombre'
+			write_tab: False
+		BoxLayout:
+			size_hint_y: .2
+			TextInput:
+				size_hint_x: .5
+				id: usuario_password
+				multiline: False
+				hint_text: 'Password'
+				password: True
+				write_tab: False
+			ToggleButton: 
+				size_hint_x: .25
+				id: admin_tipo
+				text: 'Admin'
+				group: 'usuario_tipo'
+			ToggleButton: 
+				size_hint_x: .25
+				id: trabajador_tipo
+				text: 'Trabajador'
+				group: 'usuario_tipo'
+		BoxLayout:
+			size_hint_y: .2
+		    Button:
+		    	text: 'Aceptar'
+		    	on_release: root.verificar(usuario_username.text, usuario_nombre.text, usuario_password.text, admin_tipo.state, trabajador_tipo.state)
+		    Button:
+		        text: 'Salir sin hacer cambios'
+		        on_press: root.dismiss()
 
 <VistaProductos>:
 	name: 'Productos'
@@ -113,10 +212,13 @@
 			padding: .5
 			BotonOscuro:
 				text: 'Agregar Producto'
+				on_release: root.agregar_producto()
 			BotonOscuro:
 				text: 'Modificar Producto'
+				on_release: root.modificar_producto()
 			BotonOscuro:
 				text: 'Eliminar Producto'
+				on_release: root.eliminar_producto()
 
 
 <VistaUsuarios>:
@@ -151,11 +253,13 @@
 			padding: .5
 			BotonOscuro:
 				text: 'Agregar Usuario'
+				on_release: root.agregar_usuario()
 			BotonOscuro:
 				text: 'Modificar Usuario'
+				on_release: root.modificar_usuario()
 			BotonOscuro:
 				text: 'Eliminar Usuario'
-
+				on_release: root.eliminar_usuario()
 
 
 <AdminWindow>:

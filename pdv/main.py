@@ -10,7 +10,7 @@ class MainWindow(BoxLayout):
 	def __init__(self, **kwargs):
 		super().__init__(*kwargs)
 		self.ventas_widget=VentasWindow()
-		self.signin_widget=SigninWindow(self.signin_widget.poner_usuario)
+		self.signin_widget=SigninWindow(self.ventas_widget.poner_usuario)
 		self.admin_widget=AdminWindow()
 		self.ids.scrn_signin.add_widget(self.signin_widget)
 		self.ids.scrn_ventas.add_widget(self.ventas_widget)
@@ -21,4 +21,4 @@ class MainApp(App):
 		return MainWindow()
 
 if __name__=="__main__":
-	MainApp().run()
+		MainApp().run()

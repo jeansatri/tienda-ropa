@@ -63,17 +63,19 @@ if __name__=="__main__":
     # INSERT INTO
     #   productos (codigo, nombre, precio, cantidad)
     # VALUES
-    #     ('111', 'leche 1l', 20.0, 20),
-    #     ('222', 'cereal 500g', 50.5, 15), 
-    #     ('333', 'yogurt 1L', 25.0, 10),
-    #     ('444', 'helado 2L', 80.0, 20),
-    #     ('555', 'alimento para perro 20kg', 750.0, 5),
-    #     ('666', 'shampoo', 100.0, 25),
-    #     ('777', 'papel higiénico 4 rollos', 35.5, 30),
-    #     ('888', 'jabón para trastes', 65.0, 5)
+    #     ('111', 'falda larga', 50.0, 20),
+    #     ('222', 'falda corta', 40.0, 15), 
+    #     ('333', 'jean azul', 80.0, 10),
+    #     ('444', 'blusa', 30.0, 20),
+    #     ('555', 'chaqueta', 100.0, 50),
+    #     ('666', 'vestido', 60.0, 25),
+    #     ('777', 'camiza', 30.0, 20),
+    #     ('888', 'jean negro', 80.0, 10),
+    #     ('999', 'jean blanco', 80.0, 10)
     # """
     # QueriesSQLite.execute_query(connection, crear_producto, tuple()) 
 
+  
     select_products = "SELECT * from productos"
     productos = QueriesSQLite.execute_read_query(connection, select_products)
     for producto in productos:
